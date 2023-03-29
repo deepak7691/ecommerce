@@ -21,6 +21,7 @@ const Product = () => {
   const [loading, setloading] = useState(true); // loading dikhane ke liye state
 
   const callApi = async (id) => {
+    
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);//id use ki particular product k liye
     const data = await response.json();
     console.log(data);
