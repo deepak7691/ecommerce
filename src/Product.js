@@ -18,7 +18,7 @@ const Product = () => {
   console.log('-----------------products hompage data-------------');
   console.log(products);
 
-  const [isLoading, setIsLoading] = useState(true); // loading dikhane ke liye state
+  const [loading, setloading] = useState(true); // loading dikhane ke liye state
 
   const callApi = async (id) => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);//id use ki particular product k liye
@@ -26,14 +26,14 @@ const Product = () => {
     console.log(data);
     // setProducts(data);
     dispatch(setSelectedProduct(data));
-    setIsLoading(false); // Set isLoading to false after the data is loaded
+    setloading(false); // data aagaya to loading false
   }
 
   useEffect(() => {
     callApi(id);
   }, [id])
   
-  if (isLoading) {
+  if (loading) {
     return <img src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif' alt='Loading'/>
   }
 
